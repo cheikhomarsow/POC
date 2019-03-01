@@ -1,0 +1,33 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.techprimers.jhipster"
+    },
+    "jhipsterVersion": "5.8.1",
+    "applicationType": "monolith",
+    "baseName": "pocbackend",
+    "packageName": "com.techprimers.jhipster",
+    "packageFolder": "com/techprimers/jhipster",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "no",
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "YTlmYzhmNjI2M2IwNzUxYjgxZjc4NTQzZTdlNmU0MTljOGEyNzliMmE5ODNjOWZmMWIzMDQ2YjFiZjA1NWQxYTY3ZGFmNWNlOTI4MjhmOGQ4ZjI3NTJkMGUwNjhjNWI1YWIzYTUyZjUzYzNhYTBlNmRkNzhiNmMzZmQ2N2NhNjQ=",
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "skipClient": true
+  }
+}
