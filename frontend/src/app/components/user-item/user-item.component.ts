@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/User';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-user-item',
@@ -9,7 +10,7 @@ import { User } from 'src/app/models/User';
 export class UserItemComponent implements OnInit {
   @Input() user: User;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
@@ -28,8 +29,9 @@ export class UserItemComponent implements OnInit {
     user.activated = !user.activated;
   }
 
-  onDelete(user) {
-    console.log('delete');
+  onDelete(login) {
+    console.log(login);
+    this.userService.deleteUser(login);
   }
 
   getUser(user) {

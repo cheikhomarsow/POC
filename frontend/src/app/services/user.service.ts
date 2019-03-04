@@ -31,4 +31,9 @@ export class UserService extends BaseService{
     const url = `${this.baseUrl}/users`;
     return this.postRequest(url, params);
   }
+
+  deleteUser(login) {
+    const url = `${this.baseUrl}/users/${login}`;
+    return this.deleteRequest(url);
+  }
 }
