@@ -1,0 +1,10 @@
+<div [ngClass]="setClasses()">
+  <ul>
+    <li>{{user.firstName}} {{user.lastName}}</li>
+    <li>{{user.login}}</li>
+    <li><a [routerLink]="['/users', user.login ]">details</a></li>
+    <li>edit</li>
+    <li>delete</li>
+    <li>activer/désactiver</li>
+  </ul>
+</div>
