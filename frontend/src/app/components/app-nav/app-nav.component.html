@@ -10,7 +10,8 @@
     <mat-nav-list>
       <a mat-list-item [routerLink]="['/users']" routerLinkActive="router-link-active">All users</a>
       <a mat-list-item [routerLink]="['/post']" routerLinkActive="router-link-active" >Add user</a>
-      <a mat-list-item [routerLink]="['/login']" routerLnkActive="router-link-active">Login</a>
+      <a mat-list-item  [routerLink]="['/login']" *ngIf="!isLoggedIn()" routerLnkActive="router-link-active">Login</a>
+      <a mat-list-item (click)="logout()" *ngIf="isLoggedIn()">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -23,7 +24,7 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><a href="/">POC</a></span>
+      <span><a routerLink="/">POC</a></span>
     </mat-toolbar>
     <!-- Add Content Here -->
     <router-outlet></router-outlet>

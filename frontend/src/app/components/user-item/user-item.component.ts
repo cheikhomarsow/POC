@@ -20,7 +20,7 @@ export class UserItemComponent implements OnInit {
   setClasses() {
     const classes = {
       user: true,
-      //'is-completed': this.user.activated
+      'is-desactivated': !this.user.activated
     };
 
     return classes;

@@ -1,25 +1,20 @@
-.del{
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 9px;
-  border-radius: 50%;
-  cursor: pointer;
-  float: right;
-}
-
 ul{
   display: flex;
   flex-direction: row;
+  background: #f4f4f4;
 }
 
 li{
-  width: 20%;
+  width: 15%;
   list-style: none;
 }
 
+li.username{
+  width: 25%;
+}
+
 .user{
-  background: #f4f4f4;
+  background: #ffffff;
   padding: 10px;
   border-bottom: 1px #ccc dotted;
 }

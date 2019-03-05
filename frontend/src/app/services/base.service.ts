@@ -3,7 +3,8 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 
 export class BaseService {
-  token = `eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImF1dGgiOiJST0xFX0FETUlOLFJPTEVfVVNFUiIsImV4cCI6MTU1MTc5OTI5MX0.sREoWgq5tu0gt_BJlUQA0Us9dz9DGMjU5Mp2QyX5j9D-R_KR9Kkla5uuEQIgVLgHRl9ZTk3QXwvHY68vnLY9qg`;
+
+  token = localStorage.getItem('JWT_TOKEN');
   constructor(protected http: HttpClient) {}
 
   getRequest(url) {

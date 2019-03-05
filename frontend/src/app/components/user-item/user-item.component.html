@@ -1,7 +1,7 @@
 <div [ngClass]="setClasses()">
   <ul>
-    <li>{{user.firstName}} {{user.lastName}}</li>
-    <li>{{user.login}}</li>
+    <li class='username'>{{user.firstName}} {{user.lastName}}</li>
+    <li class='login'>{{user.login}}</li>
     <li>
       <a mat-button [routerLink]="['/users', user.login ]">View details</a>
     </li>

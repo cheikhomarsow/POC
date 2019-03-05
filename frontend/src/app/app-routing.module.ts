@@ -16,8 +16,18 @@ const routes: Routes = [
     canActivate: [UserGuard],
     canLoad: [UserGuard]
   },
-  { path: 'users/:login', component: UserDetailsComponent},
-  { path: 'post', component: UserPostComponent},
+  {
+    path: 'users/:login',
+    component: UserDetailsComponent,
+    canActivate: [UserGuard],
+    canLoad: [UserGuard]
+  },
+  {
+    path: 'post',
+    component: UserPostComponent,
+    canActivate: [UserGuard],
+    canLoad: [UserGuard]
+  },
   {
     path: 'login',
     component: LoginComponent,
