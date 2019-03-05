@@ -24,6 +24,8 @@ import {
 } from '@angular/material';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPostComponent } from './components/user-post/user-post.component';
+import { PipesModule } from './pipes';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { UserPostComponent } from './components/user-post/user-post.component';
     UserItemComponent,
     AppNavComponent,
     UserDetailsComponent,
-    UserPostComponent
+    UserPostComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,9 +53,11 @@ import { UserPostComponent } from './components/user-post/user-post.component';
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    PipesModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [PipesModule]
 })
 export class AppModule { }

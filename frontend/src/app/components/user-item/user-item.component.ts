@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from 'src/app/models/User';
 import { UserService } from '../../services/user.service';
+import { UserActivatedPipe } from '../../pipes/default-pipe.pipe';
 
 @Component({
   selector: 'app-user-item',
@@ -36,6 +37,11 @@ export class UserItemComponent implements OnInit {
 
   getUser(user) {
     console.log(user);
+  }
+
+  toggleActivated(user){
+    user.activated = !user.activated;
+    this.userService.toggleActivated(user);
   }
 
 }

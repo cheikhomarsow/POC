@@ -2,9 +2,13 @@
   <ul>
     <li>{{user.firstName}} {{user.lastName}}</li>
     <li>{{user.login}}</li>
-    <li><a [routerLink]="['/users', user.login ]">details</a></li>
-    <li>edit</li>
-    <li (click)="onDelete(user.login)">delete</li>
-    <li>activer/désactiver</li>
+    <li>
+      <a mat-button [routerLink]="['/users', user.login ]">View details</a>
+    </li>
+    <li>
+        <a mat-button [routerLink]="['/edit', user.login ]">Edit</a>
+    </li>
+    <li (click)="onDelete(user.login)"><button mat-flat-button color="warn">Delete</button></li>
+    <li (click)="toggleActivated(user)">{{ user.activated | userActivated }} </li>
   </ul>
 </div>

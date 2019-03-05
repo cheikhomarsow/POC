@@ -4,12 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPostComponent } from './components/user-post/user-post.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guard/auth.guard';
+import { UserGuard } from './guard/user.guard';
 
 const routes: Routes = [
-  { path:  '', pathMatch:  'full', redirectTo:  ''},
-  { path: 'users', component: UsersComponent},
+  { path:  '', pathMatch:  'full', redirectTo:  'users'},
+  {
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [UserGuard],
+    canLoad: [UserGuard]
+  },
   { path: 'users/:login', component: UserDetailsComponent},
   { path: 'post', component: UserPostComponent},
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AuthGuard]
+  }
 ];
 
 

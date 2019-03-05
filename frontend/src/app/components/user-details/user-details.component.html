@@ -1,18 +1,18 @@
-<div class="ks-crm-contacts-users-list-column-table-container">
-  <table class="table table-hover ks-table-cells-vertical-align-middle " *ngIf="user$">
-    <thead>
-      <tr>
-        <th>Login</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>{{ user$?.login }}</td>
-        <td>{{ user$?.firstName }}</td>
-        <td>{{ user$?.lastName }}</td>
-      </tr>
-    </tbody>
+<div *ngIf="user$">
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Status</th>
+    </tr>
+    <tr>
+      <td>{{user$?.login}}</td>
+      <td>{{user$?.firstName}}</td>
+      <td>{{user$?.lastName}}</td>
+      <td>{{user$?.email}}</td>
+      <td>{{user$?.activated | userActivated}}</td>
+    </tr>
   </table>
 </div>
