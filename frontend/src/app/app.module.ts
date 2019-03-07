@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
@@ -25,6 +26,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserPostComponent } from './components/user-post/user-post.component';
 import { PipesModule } from './pipes';
 import { LoginComponent } from './components/login/login.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { LoginComponent } from './components/login/login.component';
     UserDetailsComponent,
     UserPostComponent,
     LoginComponent,
+    UserEditComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +56,7 @@ import { LoginComponent } from './components/login/login.component';
     MatInputModule,
     MatTableModule,
     PipesModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

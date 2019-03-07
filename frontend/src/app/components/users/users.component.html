@@ -9,6 +9,7 @@
         <th>Authorities</th>
         <th></th>
         <th></th>
+        <th></th>
       </tr>
       <tr *ngFor="let user of users">
         <td>{{user.login}}</td>
@@ -18,6 +19,7 @@
         <td (click)="toggleActivated(user)">{{user.activated | userActivated}}</td>
         <td>{{user.authorities}}</td>
         <td><a mat-button [routerLink]="['/users', user.login ]">View details</a></td>
+        <td><a mat-button [routerLink]="['/edit', user.login ]">Edit</a></td>
         <td><button mat-flat-button color="warn" (click)="onDelete(user.login)">Delete</button></td>
       </tr>
     </table>

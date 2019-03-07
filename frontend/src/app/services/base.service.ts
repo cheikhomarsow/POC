@@ -51,6 +51,7 @@ export class BaseService {
   }
 
   putRequest(url, params) {
+    console.log(params);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + this.token });
