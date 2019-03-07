@@ -42,7 +42,7 @@ export class BaseService {
     const options = { headers: headers };
     return this.http.delete(url, options).subscribe(
       res => {
-        this.redirect('/users');
+        //this.redirect('/users');
       },
       err => {
         console.log(err.message);

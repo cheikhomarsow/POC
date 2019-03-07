@@ -4,6 +4,7 @@ import { of, Observable } from 'rxjs';
 import { catchError, mapTo, tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Tokens } from '../models/Tokens';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -60,6 +61,11 @@ export class AuthService {
 
   getJwtToken() {
     return localStorage.getItem(this.JWT_TOKEN);
+  }
+
+  decodeUserToken() {
+    const helper = new JwtHelperService();
+    return  helper.decodeToken(localStorage.getItem('JWT_TOKEN'));
   }
 
 

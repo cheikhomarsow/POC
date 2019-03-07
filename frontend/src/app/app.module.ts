@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UsersComponent } from './components/users/users.component';
-import { UserItemComponent } from './components/user-item/user-item.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppNavComponent } from './components/app-nav/app-nav.component';
@@ -31,7 +30,6 @@ import { LoginComponent } from './components/login/login.component';
   declarations: [
     AppComponent,
     UsersComponent,
-    UserItemComponent,
     AppNavComponent,
     UserDetailsComponent,
     UserPostComponent,

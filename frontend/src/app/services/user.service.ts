@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BaseService } from "./base.service";
 import { environment } from '../../environments/environment';
-
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 
 @Injectable({
@@ -38,4 +38,11 @@ export class UserService extends BaseService{
     const url = `${environment.apiUrl}/users`;
     return this.putRequest(url, params);
   }
+
+  decodeUserToken() {
+    const helper = new JwtHelperService();
+    return  helper.decodeToken(localStorage.getItem('JWT_TOKEN'));
+  }
+
+
 }

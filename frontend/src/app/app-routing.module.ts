@@ -22,6 +22,12 @@ const routes: Routes = [
     canActivate: [UserGuard],
     canLoad: [UserGuard]
   },
+  // {
+  //   path: 'edit/:login',
+  //   component: UserEditComponent,
+  //   canActivate: [UserGuard],
+  //   canLoad: [UserGuard]
+  // },
   {
     path: 'post',
     component: UserPostComponent,
