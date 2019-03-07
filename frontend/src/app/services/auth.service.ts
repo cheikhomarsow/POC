@@ -68,5 +68,9 @@ export class AuthService {
     return  helper.decodeToken(localStorage.getItem('JWT_TOKEN'));
   }
 
+  isAdmin() {
+    const userLogged = this.decodeUserToken();
+    return userLogged.auth.includes('ROLE_ADMIN');
+  }
 
 }
