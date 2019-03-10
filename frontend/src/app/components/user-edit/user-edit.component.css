@@ -6,3 +6,19 @@
 .example-container > * {
   width: 100%;
 }
+
+form{
+  width: 40%;
+  margin: 10vh auto;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 10px;
+}

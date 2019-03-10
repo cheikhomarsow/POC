@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { UserActivatedPipe } from './default-pipe.pipe';
+import { UserActivatedPipe, UserFilterPipe } from './default-pipe.pipe';
 
 export const PIPES = [
-  UserActivatedPipe
+  UserActivatedPipe,
+  UserFilterPipe
 ];
 
 @NgModule({

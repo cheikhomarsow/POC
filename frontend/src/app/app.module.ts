@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -20,13 +20,16 @@ import {
   MatSelectModule,
   MatOptionModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPostComponent } from './components/user-post/user-post.component';
 import { PipesModule } from './pipes';
 import { LoginComponent } from './components/login/login.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ToastrModule } from 'ng6-toastr-notifications';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -55,10 +58,18 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     MatOptionModule,
     MatInputModule,
     MatTableModule,
+    MatCheckboxModule,
     PipesModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent],
   exports: [PipesModule]
 })

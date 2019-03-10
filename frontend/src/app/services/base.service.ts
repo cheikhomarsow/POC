@@ -9,62 +9,21 @@ export class BaseService {
 
   getRequest(url) {
     return this.http
-      .get<any>(url, {
-        headers: new HttpHeaders()
-          .append("Accept", "application/json")
-          .append("Content-Type", "application/json")
-          .append("Authorization", "Bearer " + this.token),
-        responseType: "json"
-      })
+      .get<any>(url)
       .pipe(map((response: Response) => <any>response));
   }
 
   postRequest(url, params) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + this.token });
-    const options = { headers: headers };
-    return this.http.post(url, params, options).subscribe(
-      res => {
-        console.log(res);
-        this.redirect('/users');
-      },
-      err => {
-        console.log(err.message);
-      }
-    );
+    return this.http.post(url, params);
   }
 
   deleteRequest(url) {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + this.token });
-    const options = { headers: headers };
-    return this.http.delete(url, options).subscribe(
-      res => {
-        //this.redirect('/users');
-      },
-      err => {
-        console.log(err.message);
-      }
-    );
+    return this.http.delete(url);
   }
 
   putRequest(url, params) {
-    console.log(params);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'Bearer ' + this.token });
-    const options = { headers: headers };
     return this.http
-      .put(url, params, options).subscribe(
-        res => {
-          // this.redirect('/users');
-        },
-        err => {
-          console.log(err.message);
-        }
-      );
+      .put(url, params);
   }
 
   redirect(pathname) {

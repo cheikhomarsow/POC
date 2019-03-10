@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user.service";
+import { ToastrManager } from "ng6-toastr-notifications";
 
 import { User } from "../../models/User";
 
@@ -10,8 +11,12 @@ import { User } from "../../models/User";
 })
 export class UsersComponent implements OnInit {
   users: User[];
+  filterText: string;
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private toastr: ToastrManager
+  ) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe(users => {
@@ -19,21 +24,25 @@ export class UsersComponent implements OnInit {
     });
   }
 
+  showSuccess() {
+    this.toastr.successToastr("This is success toast.", "Success!");
+  }
+
   onDelete(login) {
-    if (this.isAdmin()){
+    if (this.isAdmin()) {
       this.userService.deleteUser(login);
       this.users = this.users.filter(u => u.login !== login);
+      this.showSuccess();
     }
   }
 
-
-  toggleActivated(user){
+  toggleActivated(user) {
     user.activated = !user.activated;
     this.userService.toggleActivated(user);
   }
 
   isAdmin() {
     const userLogged = this.userService.decodeUserToken();
-    return userLogged.auth.includes('ROLE_ADMIN');
+    return userLogged.auth.includes("ROLE_ADMIN");
   }
 }

@@ -1,26 +1,37 @@
-<div class='users'>
-    <table>
-      <tr>
-        <th>Login</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Authorities</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let user of users">
-        <td>{{user.login}}</td>
-        <td>{{user.firstName}}</td>
-        <td>{{user.lastName}}</td>
-        <td>{{user.email}}</td>
-        <td (click)="toggleActivated(user)">{{user.activated | userActivated}}</td>
-        <td>{{user.authorities}}</td>
-        <td><a mat-button [routerLink]="['/users', user.login ]">View details</a></td>
-        <td><a mat-button [routerLink]="['/edit', user.login ]">Edit</a></td>
-        <td><button mat-flat-button color="warn" (click)="onDelete(user.login)">Delete</button></td>
-      </tr>
-    </table>
-  </div>
+<div class="users">
+  <mat-form-field>
+    <input matInput [(ngModel)]="filterText" placeholder="Search" />
+  </mat-form-field>
+  <table>
+    <tr>
+      <th>Login</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Authorities</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let user of users | userFilter:filterText">
+      <td>{{ user.login }}</td>
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.email }}</td>
+      <td (click)="toggleActivated(user)">
+        {{ user.activated | userActivated }}
+      </td>
+      <td>{{ user.authorities }}</td>
+      <td>
+        <a mat-button [routerLink]="['/users', user.login]">View details</a>
+      </td>
+      <td><a mat-button [routerLink]="['/edit', user.login]">Edit</a></td>
+      <td>
+        <button mat-flat-button color="warn" (click)="onDelete(user.login)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>
