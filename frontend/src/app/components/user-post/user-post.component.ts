@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from "@angular/forms";
 import { UserService } from "../../services/user.service";
 import { Router } from "@angular/router";
 import { ToastrManager } from "ng6-toastr-notifications";
@@ -23,17 +23,16 @@ export class UserPostComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      login: '',
+      login: new FormControl('', [Validators.required, Validators.minLength(4)]),
       firstName: '',
       lastName: '',
-      email: '',
+      email: new FormControl('', [Validators.required, Validators.email]),
       roleUser: this.roleUser,
       roleAdmin: this.roleAdmin
     });
   }
 
   submitHandler() {
-    this.getSelectedAuthorities();
     const params = {
       login: this.myForm.value.login,
       firstName: this.myForm.value.firstName,

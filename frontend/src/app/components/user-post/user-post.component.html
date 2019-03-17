@@ -1,26 +1,40 @@
-
-<form [formGroup]='myForm' (ngSubmit)='submitHandler()'>
+<form [formGroup]="myForm" (ngSubmit)="submitHandler()">
   <div class="example-container">
+    <mat-form-field>
+      <input matInput formControlName="login" placeholder="Login" />
+    </mat-form-field>
+
+    <mat-error *ngIf="myForm.get('login').touched && myForm.get('login').invalid">
+      <div *ngIf="myForm.get('login').errors['required']">Login is required</div>
+      <div *ngIf="myForm.get('login').errors['minlength']">Login must be least 4 characters</div>
+
+    </mat-error>
 
     <mat-form-field>
-      <input matInput formControlName="login" placeholder="Login">
+      <input matInput formControlName="firstName" placeholder="FirstName" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="firstName" placeholder="FirstName">
+      <input matInput formControlName="lastName" placeholder="LastName" />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput formControlName="lastName" placeholder="LastName">
+      <input matInput formControlName="email" placeholder="Email" />
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput formControlName="email" placeholder="Email">
-    </mat-form-field>
+    <mat-error *ngIf="myForm.get('email').touched && myForm.get('email').invalid">
+      <div *ngIf="myForm.get('email').errors['required']">Email is required</div>
+      <div *ngIf="myForm.get('email').errors['email']">Email must be a valid email Adress</div>
+    </mat-error>
+
     <section class="example-section">
-        <mat-checkbox class="example-margin" formControlName="roleUser">Role User</mat-checkbox>
-        <mat-checkbox class="example-margin" formControlName="roleAdmin">Role Admin</mat-checkbox>
-      </section>
+      <mat-checkbox class="example-margin" formControlName="roleUser"
+        >Role User</mat-checkbox
+      >
+      <mat-checkbox class="example-margin" formControlName="roleAdmin"
+        >Role Admin</mat-checkbox
+      >
+    </section>
   </div>
-  <button mat-raised-button type="submit" color="primary">Add</button>
+  <button mat-raised-button type="submit" disabled="!myForm.valid" color="primary">Add</button>
 </form>

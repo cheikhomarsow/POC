@@ -23,7 +23,7 @@ export class AuthService {
     });
     const options = { headers : headers }
 
-    return this.http.post<any>(`${environment.apiUrl}/authenticate`, user, options)
+    return this.http.post<any>(`${environment.apiUrl}/authenticate`, user)
       .pipe(
         tap(tokens => this.doLoginUser(user.username, tokens)),
         mapTo(true),

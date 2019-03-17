@@ -19,6 +19,8 @@ import { ToastrManager } from "ng6-toastr-notifications";
 export class UserEditComponent implements OnInit {
   user$;
   myForm: FormGroup;
+  roleUser = false;
+  roleAdmin = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +35,6 @@ export class UserEditComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.userService.getUserByLogin(params['login']).subscribe(
         (x: any) => {
-          console.log(x);
           this.user$ = x;
         },
         error => console.log(error),
@@ -42,7 +43,9 @@ export class UserEditComponent implements OnInit {
             login: this.user$.login,
             firstName: this.user$.firstName,
             lastName: this.user$.lastName,
-            email: this.user$.email
+            email: this.user$.email,
+            roleUser: this.user$.authorities.includes('ROLE_USER'),
+            roleAdmin: this.user$.authorities.includes('ROLE_ADMIN'),
           });
           this.cd.detectChanges();
         }
@@ -53,7 +56,9 @@ export class UserEditComponent implements OnInit {
       login: '',
       firstName: '',
       lastName: '',
-      email: ''
+      email: '',
+      roleUser: this.roleUser,
+      roleAdmin: this.roleAdmin
     });
   }
 
@@ -62,6 +67,7 @@ export class UserEditComponent implements OnInit {
     this.user$.firstName = this.myForm.value.firstName;
     this.user$.lastName = this.myForm.value.lastName;
     this.user$.email = this.myForm.value.email;
+    this.user$.authorities = this.getSelectedAuthorities();
     this.userService.updateUser(this.user$).subscribe(
       res => {
         this.router.navigate(['/users']);
@@ -71,6 +77,17 @@ export class UserEditComponent implements OnInit {
         console.log(err);
        }
     );
+  }
+
+  getSelectedAuthorities() {
+    const authorities = [];
+    if (this.myForm.value.roleUser) {
+      authorities.push('ROLE_USER');
+    }
+    if (this.myForm.value.roleAdmin) {
+      authorities.push('ROLE_ADMIN');
+    }
+    return authorities;
   }
 
   showInfo() {

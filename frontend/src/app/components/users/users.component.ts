@@ -25,7 +25,11 @@ export class UsersComponent implements OnInit {
   }
 
   showSuccess() {
-    this.toastr.successToastr("This is success toast.", "Success!");
+    this.toastr.successToastr("User activated.", "Alert");
+  }
+
+  showError() {
+    this.toastr.errorToastr("User desactivated.", "Alert");
   }
 
   onDelete(login) {
@@ -38,7 +42,19 @@ export class UsersComponent implements OnInit {
 
   toggleActivated(user) {
     user.activated = !user.activated;
-    this.userService.toggleActivated(user);
+    this.userService.toggleActivated(user).subscribe(
+      res => {
+        if (user.activated) {
+          this.showSuccess();
+        } else {
+          this.showError();
+        }
+      },
+      err => {
+        console.log(err);
+      }
+    );
+    return user.activated;
   }
 
   isAdmin() {

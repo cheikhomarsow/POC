@@ -14,13 +14,15 @@
       <th></th>
       <th></th>
     </tr>
-    <tr *ngFor="let user of users | userFilter:filterText">
+    <tr *ngFor="let user of (users | userFilter: filterText)">
       <td>{{ user.login }}</td>
       <td>{{ user.firstName }}</td>
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
-      <td (click)="toggleActivated(user)">
-        {{ user.activated | userActivated }}
+      <td>
+        <mat-checkbox class="example-margin" [checked]="user.activated ? true : false" (click)="toggleActivated(user)"
+          >Activated</mat-checkbox
+        >
       </td>
       <td>{{ user.authorities }}</td>
       <td>
