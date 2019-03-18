@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from "@angular/forms";
+import { loginValidator } from '../../validators';
 import { UserService } from "../../services/user.service";
 import { Router } from "@angular/router";
 import { ToastrManager } from "ng6-toastr-notifications";
@@ -13,6 +14,7 @@ export class UserPostComponent implements OnInit {
   myForm: FormGroup;
   roleUser = false;
   roleAdmin = false;
+  otherErrorMessages = {};
 
   constructor(
     private fb: FormBuilder,
@@ -23,7 +25,7 @@ export class UserPostComponent implements OnInit {
 
   ngOnInit() {
     this.myForm = this.fb.group({
-      login: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      login: ['', [Validators.required, Validators.minLength(4), loginValidator]],
       firstName: '',
       lastName: '',
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -46,7 +48,15 @@ export class UserPostComponent implements OnInit {
         this.showSuccess();
       },
       err => {
-        console.log(err);
+        if (err.error && err.error.errorKey) {
+          const error = err.error.errorKey;
+          if (error === 'userexists') {
+            this.otherErrorMessages['LoginExist'] = true;
+          }
+          if (error === 'emailexists') {
+            this.otherErrorMessages['EmailExist'] = true;
+          }
+        }
       }
     );
   }
@@ -62,6 +72,11 @@ export class UserPostComponent implements OnInit {
     }
     if (this.myForm.value.roleAdmin) {
       authorities.push('ROLE_ADMIN');
+    }
+
+    // ROLE_USER by default
+    if (authorities.length === 0) {
+      authorities.push('ROLE_USER');
     }
     return authorities;
   }

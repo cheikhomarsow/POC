@@ -1,6 +1,9 @@
 <div class="users">
   <mat-form-field>
     <input matInput [(ngModel)]="filterText" placeholder="Search" />
+    <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <table>
     <tr>
@@ -20,7 +23,7 @@
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
       <td>
-        <mat-checkbox class="example-margin" [checked]="user.activated ? true : false" (click)="toggleActivated(user)"
+        <mat-checkbox class="example-margin" color="primary" [ngModel]="user.activated" (change)="toggleActivated(user)"
           >Activated</mat-checkbox
         >
       </td>

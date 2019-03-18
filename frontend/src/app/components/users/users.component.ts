@@ -24,19 +24,19 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  showSuccess() {
-    this.toastr.successToastr("User activated.", "Alert");
+  showSuccess(message) {
+    this.toastr.successToastr(message, "Alert");
   }
 
-  showError() {
-    this.toastr.errorToastr("User desactivated.", "Alert");
+  showError(message) {
+    this.toastr.errorToastr(message, "Alert");
   }
 
   onDelete(login) {
     if (this.isAdmin()) {
       this.userService.deleteUser(login);
       this.users = this.users.filter(u => u.login !== login);
-      this.showSuccess();
+      this.showSuccess('User deleted successfuly!');
     }
   }
 
@@ -45,9 +45,9 @@ export class UsersComponent implements OnInit {
     this.userService.toggleActivated(user).subscribe(
       res => {
         if (user.activated) {
-          this.showSuccess();
+          this.showSuccess('User activated successfuly!');
         } else {
-          this.showError();
+          this.showError('User desactivated successfuly!');
         }
       },
       err => {

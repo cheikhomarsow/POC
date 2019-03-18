@@ -87,6 +87,10 @@ export class UserEditComponent implements OnInit {
     if (this.myForm.value.roleAdmin) {
       authorities.push('ROLE_ADMIN');
     }
+    // ROLE_USER by default
+    if (authorities.length === 0) {
+      authorities.push('ROLE_USER');
+    }
     return authorities;
   }
 
