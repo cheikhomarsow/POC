@@ -22,7 +22,9 @@ export class UsersComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUsers().subscribe(users => {
-      this.users = users;
+      this.users = users.filter(user =>
+        user.login !== this.userService.decodeUserToken().sub
+      );
     });
   }
 
