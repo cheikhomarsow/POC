@@ -95,6 +95,6 @@ export class UserEditComponent implements OnInit {
   }
 
   showInfo() {
-    this.toastr.infoToastr('User updated successfuly.', 'Info');
+    this.toastr.infoToastr('User updated successfuly.');
   }
 }

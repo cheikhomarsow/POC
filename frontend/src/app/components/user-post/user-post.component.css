@@ -22,3 +22,7 @@ form{
 .example-margin {
   margin: 10px;
 }
+
+button{
+  margin-right: 15px;
+}

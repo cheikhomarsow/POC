@@ -21,7 +21,9 @@ import {
   MatOptionModule,
   MatInputModule,
   MatTableModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatDialogModule,
+  MatMenuModule
 } from '@angular/material';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserPostComponent } from './components/user-post/user-post.component';
@@ -30,6 +32,7 @@ import { LoginComponent } from './components/login/login.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { ToastrModule } from 'ng6-toastr-notifications';
 import { HttpInterceptorService } from './services/http-interceptor.service';
+import { MatConfirmDialogComponent } from './components/mat-confirm-dialog/mat-confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +43,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     UserPostComponent,
     LoginComponent,
     UserEditComponent,
+    MatConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,6 +63,8 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     MatInputModule,
     MatTableModule,
     MatCheckboxModule,
+    MatDialogModule,
+    MatMenuModule,
     PipesModule,
     FormsModule,
     ToastrModule.forRoot()
@@ -71,6 +77,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
     }
   ],
   bootstrap: [AppComponent],
+  entryComponents:[UsersComponent, MatConfirmDialogComponent],
   exports: [PipesModule]
 })
 export class AppModule { }

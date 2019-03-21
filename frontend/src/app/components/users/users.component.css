@@ -11,3 +11,12 @@ table {
 th, td {
   padding: 15px;
 }
+
+.add-user-btn{
+  float: right;
+  margin: 15px 15px 0 0;
+}
+
+.add-user-btn a {
+  color: #ffffff;
+}

@@ -3,6 +3,7 @@ import { UserService } from "../../services/user.service";
 import { ToastrManager } from "ng6-toastr-notifications";
 
 import { User } from "../../models/User";
+import { DialogService } from "../../services/dialog.service";
 
 @Component({
   selector: "app-users",
@@ -15,7 +16,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private toastr: ToastrManager
+    private toastr: ToastrManager,
+    private dialogService: DialogService
   ) {}
 
   ngOnInit() {
@@ -25,18 +27,24 @@ export class UsersComponent implements OnInit {
   }
 
   showSuccess(message) {
-    this.toastr.successToastr(message, "Alert");
+    this.toastr.successToastr(message);
   }
 
   showError(message) {
-    this.toastr.errorToastr(message, "Alert");
+    this.toastr.errorToastr(message);
   }
 
   onDelete(login) {
     if (this.isAdmin()) {
-      this.userService.deleteUser(login);
-      this.users = this.users.filter(u => u.login !== login);
-      this.showSuccess('User deleted successfuly!');
+      this.dialogService.openConfirmDialog('Are you sure to detele this user ?')
+      .afterClosed().subscribe(res => {
+        console.log(res);
+        if (res) {
+          this.userService.deleteUser(login);
+          this.users = this.users.filter(u => u.login !== login);
+          this.showSuccess('User deleted successfuly!');
+        }
+      });
     }
   }
 

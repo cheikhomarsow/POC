@@ -1,10 +1,15 @@
 <div class="users">
-  <mat-form-field>
-    <input matInput [(ngModel)]="filterText" placeholder="Search" />
-    <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=''">
-      <mat-icon>close</mat-icon>
+  <div class="nav-box">
+    <mat-form-field>
+      <input matInput [(ngModel)]="filterText" placeholder="Search" />
+      <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button class='add-user-btn' color="primary">
+      <a mat-list-item [routerLink]="['/post']" routerLinkActive="router-link-active" >Add user</a>
     </button>
-  </mat-form-field>
+  </div>
   <table>
     <tr>
       <th>Login</th>
