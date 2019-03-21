@@ -2,12 +2,24 @@
   <div class="nav-box">
     <mat-form-field>
       <input matInput [(ngModel)]="filterText" placeholder="Search" />
-      <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=''">
+      <button
+        mat-button
+        *ngIf="filterText"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="filterText = ''"
+      >
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
-    <button mat-raised-button class='add-user-btn' color="primary">
-      <a mat-list-item [routerLink]="['/post']" routerLinkActive="router-link-active" >Add user</a>
+    <button mat-raised-button class="add-user-btn" color="primary">
+      <a
+        mat-list-item
+        [routerLink]="['/post']"
+        routerLinkActive="router-link-active"
+        >Add user</a
+      >
     </button>
   </div>
   <table>
@@ -28,19 +40,32 @@
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
       <td>
-        <mat-checkbox class="example-margin" color="primary" [ngModel]="user.activated" (change)="toggleActivated(user)"
+        <mat-checkbox
+          class="example-margin"
+          color="primary"
+          [ngModel]="user.activated"
+          (change)="toggleActivated(user)"
           >Activated</mat-checkbox
         >
       </td>
       <td>{{ user.authorities }}</td>
       <td>
-        <a mat-button [routerLink]="['/users', user.login]">View details</a>
+        <a [routerLink]="['/users', user.login]">
+          <mat-icon class="delete-icon">remove_red_eye</mat-icon>
+        </a>
       </td>
-      <td><a mat-button [routerLink]="['/edit', user.login]">Edit</a></td>
       <td>
-        <button mat-flat-button color="warn" (click)="onDelete(user.login)">
-          Delete
-        </button>
+        <a [routerLink]="['/edit', user.login]">
+          <mat-icon class="delete-icon">edit</mat-icon>
+        </a>
+      </td>
+      <td>
+        <mat-icon
+          color="warn"
+          class="delete-icon"
+          (click)="onDelete(user.login)"
+          >delete</mat-icon
+        >
       </td>
     </tr>
   </table>

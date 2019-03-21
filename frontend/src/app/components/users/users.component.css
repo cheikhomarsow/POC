@@ -20,3 +20,7 @@ th, td {
 .add-user-btn a {
   color: #ffffff;
 }
+
+.delete-icon{
+  cursor: pointer;
+}
