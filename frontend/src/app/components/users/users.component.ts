@@ -33,9 +33,10 @@ export class UsersComponent implements OnInit {
       .afterClosed().subscribe(res => {
         console.log(res);
         if (res) {
-          this.userService.deleteUser(login);
-          this.users = this.users.filter(u => u.login !== login);
-          this.toastrService.showSuccess('User deleted successfuly!');
+          this.userService.deleteUser(login).subscribe(data => {
+            this.users = this.users.filter(u => u.login !== login);
+            this.toastrService.showSuccess('User deleted successfuly!');
+          });
         }
       });
     }
