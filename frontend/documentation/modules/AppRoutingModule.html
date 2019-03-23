@@ -96,13 +96,13 @@ const routes: Routes &#x3D; [
     canLoad: [UserGuard]
   },
   {
-    path: &#x27;edit/:login&#x27;,
+    path: &#x27;users/edit/:login&#x27;,
     component: UserEditComponent,
     canActivate: [UserGuard],
     canLoad: [UserGuard]
   },
   {
-    path: &#x27;post&#x27;,
+    path: &#x27;user/post&#x27;,
     component: UserPostComponent,
     canActivate: [UserGuard],
     canLoad: [UserGuard]

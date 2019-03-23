@@ -516,7 +516,7 @@ mat-form-field {
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
         var COMPONENT_TEMPLATE = '<div><div class="header center">Log In</div><form [formGroup]="loginForm" (ngSubmit)="login()">  <mat-form-field>    <input matInput type="text" id="login" placeholder="Login" autocomplete="off" formControlName="username" required>  </mat-form-field>  <mat-form-field>    <input matInput type="password" id="password" placeholder="Password" formControlName="password" required>  </mat-form-field>  <div class="actions">    <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">LOG IN</button>  </div></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MatConfirmDialogComponent', 'selector': 'app-mat-confirm-dialog'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'LoginComponent'};
 </script>

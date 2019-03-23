@@ -164,9 +164,6 @@
                                 <a href="#ngOnInit">ngOnInit</a>
                             </li>
                             <li>
-                                <a href="#showInfo">showInfo</a>
-                            </li>
-                            <li>
                                 <a href="#submitHandler">submitHandler</a>
                             </li>
                         </ul>
@@ -187,7 +184,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userService: <a href="../injectables/UserService.html">UserService</a>, cd: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, toastr: ToastrManager)</code>
+<code>constructor(route: <a href="https://angular.io/api/router/ActivatedRoute" target="_blank">ActivatedRoute</a>, userService: <a href="../injectables/UserService.html">UserService</a>, cd: <a href="https://angular.io/api/core/ChangeDetectorRef" target="_blank">ChangeDetectorRef</a>, fb: <a href="https://angular.io/api/forms/FormBuilder" target="_blank">FormBuilder</a>, router: <a href="https://angular.io/api/router/Router" target="_blank">Router</a>, toastrService: <a href="../injectables/ToastrService.html">ToastrService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -270,10 +267,10 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>toastr</td>
+                                                        <td>toastrService</td>
                                                   
                                                         <td>
-                                                                    <code>ToastrManager</code>
+                                                                        <code><a href="../injectables/ToastrService.html" target="_self" >ToastrService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -362,45 +359,6 @@
                 <td class="col-md-4">
                     <div class="io-line">Defined in <a href="" data-line="34"
                             class="link-to-prism">src/app/components/user-edit/user-edit.component.ts:34</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="showInfo"></a>
-                    <span class="name">
-                        <b>
-                            showInfo
-                        </b>
-                        <a href="#showInfo"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>showInfo()</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="97"
-                            class="link-to-prism">src/app/components/user-edit/user-edit.component.ts:97</a></div>
                 </td>
             </tr>
 
@@ -577,7 +535,7 @@ import { ActivatedRoute } from &quot;@angular/router&quot;;
 import { UserService } from &quot;../../services/user.service&quot;;
 import { FormBuilder, FormGroup } from &quot;@angular/forms&quot;;
 import { Router } from &quot;@angular/router&quot;;
-import { ToastrManager } from &quot;ng6-toastr-notifications&quot;;
+import { ToastrService } from &#x27;../../services/toastr.service&#x27;;
 
 @Component({
   selector: &quot;app-user-edit&quot;,
@@ -597,7 +555,7 @@ export class UserEditComponent implements OnInit {
     private cd: ChangeDetectorRef,
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrManager
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -640,7 +598,7 @@ export class UserEditComponent implements OnInit {
     this.userService.updateUser(this.user$).subscribe(
       res &#x3D;&gt; {
         this.router.navigate([&#x27;/users&#x27;]);
-        this.showInfo();
+        this.toastrService.showInfo(&#x27;User updated successfuly!&#x27;);
       },
       err &#x3D;&gt; {
         console.log(err);
@@ -661,10 +619,6 @@ export class UserEditComponent implements OnInit {
       authorities.push(&#x27;ROLE_USER&#x27;);
     }
     return authorities;
-  }
-
-  showInfo() {
-    this.toastr.infoToastr(&#x27;User updated successfuly.&#x27;, &#x27;Info&#x27;);
   }
 }
 </code></pre>
@@ -690,14 +644,15 @@ export class UserEditComponent implements OnInit {
     &lt;/mat-form-field&gt;
 
     &lt;section class&#x3D;&quot;example-section&quot;&gt;
-      &lt;mat-checkbox class&#x3D;&quot;example-margin&quot; [checked]&#x3D;&quot;roleUser&quot; formControlName&#x3D;&quot;roleUser&quot;
+      &lt;mat-checkbox class&#x3D;&quot;example-margin&quot; [checked]&#x3D;&quot;roleUser&quot; color&#x3D;&quot;primary&quot; formControlName&#x3D;&quot;roleUser&quot;
         &gt;Role User&lt;/mat-checkbox
       &gt;
-      &lt;mat-checkbox class&#x3D;&quot;example-margin&quot; [checked]&#x3D;&quot;roleAdmin&quot; formControlName&#x3D;&quot;roleAdmin&quot;
+      &lt;mat-checkbox class&#x3D;&quot;example-margin&quot; [checked]&#x3D;&quot;roleAdmin&quot; color&#x3D;&quot;primary&quot; formControlName&#x3D;&quot;roleAdmin&quot;
         &gt;Role Admin&lt;/mat-checkbox
       &gt;
     &lt;/section&gt;
   &lt;/div&gt;
+  &lt;button mat-raised-button routerLink&#x3D;&quot;/users&quot;&gt;Cancel&lt;/button&gt;
   &lt;button mat-raised-button type&#x3D;&quot;submit&quot; color&#x3D;&quot;primary&quot;&gt;Update&lt;/button&gt;
 &lt;/form&gt;
 </code></pre>
@@ -731,6 +686,10 @@ form{
 .example-margin {
   margin: 10px;
 }
+
+button{
+  margin-right: 15px;
+}
 </code></pre>
     </div>
 
@@ -759,8 +718,8 @@ form{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><form [formGroup]="myForm" (ngSubmit)="submitHandler()">  <div class="example-container">    <mat-form-field>      <input matInput formControlName="login" placeholder="Login" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="firstName" placeholder="FirstName" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="lastName" placeholder="LastName" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="email" placeholder="Email" />    </mat-form-field>    <section class="example-section">      <mat-checkbox class="example-margin" [checked]="roleUser" formControlName="roleUser"        >Role User</mat-checkbox      >      <mat-checkbox class="example-margin" [checked]="roleAdmin" formControlName="roleAdmin"        >Role Admin</mat-checkbox      >    </section>  </div>  <button mat-raised-button type="submit" color="primary">Update</button></form></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+        var COMPONENT_TEMPLATE = '<div><form [formGroup]="myForm" (ngSubmit)="submitHandler()">  <div class="example-container">    <mat-form-field>      <input matInput formControlName="login" placeholder="Login" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="firstName" placeholder="FirstName" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="lastName" placeholder="LastName" />    </mat-form-field>    <mat-form-field>      <input matInput formControlName="email" placeholder="Email" />    </mat-form-field>    <section class="example-section">      <mat-checkbox class="example-margin" [checked]="roleUser" color="primary" formControlName="roleUser"        >Role User</mat-checkbox      >      <mat-checkbox class="example-margin" [checked]="roleAdmin" color="primary" formControlName="roleAdmin"        >Role Admin</mat-checkbox      >    </section>  </div>  <button mat-raised-button routerLink="/users">Cancel</button>  <button mat-raised-button type="submit" color="primary">Update</button></form></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MatConfirmDialogComponent', 'selector': 'app-mat-confirm-dialog'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UserEditComponent'};
 </script>

@@ -399,33 +399,15 @@ export class AppNavComponent {
 
     <div class="tab-pane fade " id="c-templateData">
         <pre class="line-numbers"><code class="language-html">&lt;mat-sidenav-container class&#x3D;&quot;sidenav-container&quot;&gt;
-  &lt;mat-sidenav
-    #drawer
-    class&#x3D;&quot;sidenav&quot;
-    fixedInViewport&#x3D;&quot;true&quot;
-    [attr.role]&#x3D;&quot;(isHandset$ | async) ? &#x27;dialog&#x27; : &#x27;navigation&#x27;&quot;
-    [mode]&#x3D;&quot;(isHandset$ | async) ? &#x27;over&#x27; : &#x27;side&#x27;&quot;
-    [opened]&#x3D;&quot;!(isHandset$ | async)&quot;&gt;
-    &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;Menu&lt;/mat-toolbar&gt;
-    &lt;mat-nav-list&gt;
-      &lt;a mat-list-item [routerLink]&#x3D;&quot;[&#x27;/users&#x27;]&quot; routerLinkActive&#x3D;&quot;router-link-active&quot;&gt;All users&lt;/a&gt;
-      &lt;a mat-list-item [routerLink]&#x3D;&quot;[&#x27;/post&#x27;]&quot; routerLinkActive&#x3D;&quot;router-link-active&quot; &gt;Add user&lt;/a&gt;
-      &lt;a mat-list-item  [routerLink]&#x3D;&quot;[&#x27;/login&#x27;]&quot; *ngIf&#x3D;&quot;!isLoggedIn()&quot; routerLnkActive&#x3D;&quot;router-link-active&quot;&gt;Login&lt;/a&gt;
-      &lt;a mat-list-item (click)&#x3D;&quot;logout()&quot; *ngIf&#x3D;&quot;isLoggedIn()&quot;&gt;Logout&lt;/a&gt;
-    &lt;/mat-nav-list&gt;
-  &lt;/mat-sidenav&gt;
   &lt;mat-sidenav-content&gt;
-    &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
-      &lt;button
-        type&#x3D;&quot;button&quot;
-        aria-label&#x3D;&quot;Toggle sidenav&quot;
-        mat-icon-button
-        (click)&#x3D;&quot;drawer.toggle()&quot;
-        *ngIf&#x3D;&quot;isHandset$ | async&quot;&gt;
-        &lt;mat-icon aria-label&#x3D;&quot;Side nav toggle icon&quot;&gt;menu&lt;/mat-icon&gt;
-      &lt;/button&gt;
-      &lt;span&gt;&lt;a routerLink&#x3D;&quot;/&quot;&gt;POC&lt;/a&gt;&lt;/span&gt;
+    &lt;mat-toolbar color&#x3D;&quot;primary&quot; class&#x3D;&quot;header container&quot;&gt;
+      &lt;mat-toolbar-row&gt;
+        &lt;span&gt;&lt;a routerLink&#x3D;&quot;/&quot;&gt;POC&lt;/a&gt;&lt;/span&gt;
+        &lt;span class&#x3D;&quot;example-spacer&quot;&gt;&lt;/span&gt;
+        &lt;mat-icon class&#x3D;&quot;example-icon logout-icon&quot; (click)&#x3D;&quot;logout()&quot; *ngIf&#x3D;&quot;isLoggedIn()&quot; color&#x3D;&quot;warn&quot; aria-hidden&#x3D;&quot;false&quot; aria-label&#x3D;&quot;Logout&quot;&gt;logout&lt;/mat-icon&gt;
+      &lt;/mat-toolbar-row&gt;
     &lt;/mat-toolbar&gt;
+
     &lt;!-- Add Content Here --&gt;
     &lt;router-outlet&gt;&lt;/router-outlet&gt;
   &lt;/mat-sidenav-content&gt;
@@ -453,7 +435,27 @@ export class AppNavComponent {
 span a{
   color: #FFF;
 }
-</code></pre>
+
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.example-icon{
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+a.login{
+  color: #FFF;
+}
+
+.header{
+  z-index: 100;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -481,8 +483,8 @@ span a{
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav    #drawer    class="sidenav"    fixedInViewport="true"    [attr.role]="(isHandset$ | async) ? \'dialog\' : \'navigation\'"    [mode]="(isHandset$ | async) ? \'over\' : \'side\'"    [opened]="!(isHandset$ | async)">    <mat-toolbar color="primary">Menu</mat-toolbar>    <mat-nav-list>      <a mat-list-item [routerLink]="[\'/users\']" routerLinkActive="router-link-active">All users</a>      <a mat-list-item [routerLink]="[\'/post\']" routerLinkActive="router-link-active" >Add user</a>      <a mat-list-item  [routerLink]="[\'/login\']" *ngIf="!isLoggedIn()" routerLnkActive="router-link-active">Login</a>      <a mat-list-item (click)="logout()" *ngIf="isLoggedIn()">Logout</a>    </mat-nav-list>  </mat-sidenav>  <mat-sidenav-content>    <mat-toolbar color="primary">      <button        type="button"        aria-label="Toggle sidenav"        mat-icon-button        (click)="drawer.toggle()"        *ngIf="isHandset$ | async">        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>      </button>      <span><a routerLink="/">POC</a></span>    </mat-toolbar>    <!-- Add Content Here -->    <router-outlet></router-outlet>  </mat-sidenav-content></mat-sidenav-container></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+        var COMPONENT_TEMPLATE = '<div><mat-sidenav-container class="sidenav-container">  <mat-sidenav-content>    <mat-toolbar color="primary" class="header container">      <mat-toolbar-row>        <span><a routerLink="/">POC</a></span>        <span class="example-spacer"></span>        <mat-icon class="example-icon logout-icon" (click)="logout()" *ngIf="isLoggedIn()" color="warn" aria-hidden="false" aria-label="Logout">logout</mat-icon>      </mat-toolbar-row>    </mat-toolbar>    <!-- Add Content Here -->    <router-outlet></router-outlet>  </mat-sidenav-content></mat-sidenav-container></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MatConfirmDialogComponent', 'selector': 'app-mat-confirm-dialog'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppNavComponent'};
 </script>

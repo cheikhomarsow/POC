@@ -157,12 +157,6 @@
                                 <a href="#onDelete">onDelete</a>
                             </li>
                             <li>
-                                <a href="#showError">showError</a>
-                            </li>
-                            <li>
-                                <a href="#showSuccess">showSuccess</a>
-                            </li>
-                            <li>
                                 <a href="#toggleActivated">toggleActivated</a>
                             </li>
                         </ul>
@@ -183,7 +177,7 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(userService: <a href="../injectables/UserService.html">UserService</a>, toastr: ToastrManager)</code>
+<code>constructor(userService: <a href="../injectables/UserService.html">UserService</a>, dialogService: <a href="../injectables/DialogService.html">DialogService</a>, toastrService: <a href="../injectables/ToastrService.html">ToastrService</a>)</code>
                     </td>
                 </tr>
                         <tr>
@@ -218,10 +212,22 @@
                                                     
                                                 </tr>
                                                 <tr>
-                                                        <td>toastr</td>
+                                                        <td>dialogService</td>
                                                   
                                                         <td>
-                                                                    <code>ToastrManager</code>
+                                                                        <code><a href="../injectables/DialogService.html" target="_self" >DialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>toastrService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ToastrService.html" target="_self" >ToastrService</a></code>
                                                         </td>
                                                   
                                                     <td>
@@ -269,8 +275,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="60"
-                            class="link-to-prism">src/app/components/users/users.component.ts:60</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="61"
+                            class="link-to-prism">src/app/components/users/users.component.ts:61</a></div>
                 </td>
             </tr>
 
@@ -308,8 +314,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="21"
-                            class="link-to-prism">src/app/components/users/users.component.ts:21</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/app/components/users/users.component.ts:22</a></div>
                 </td>
             </tr>
 
@@ -347,8 +353,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="35"
-                            class="link-to-prism">src/app/components/users/users.component.ts:35</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="30"
+                            class="link-to-prism">src/app/components/users/users.component.ts:30</a></div>
                 </td>
             </tr>
 
@@ -395,138 +401,6 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="showError"></a>
-                    <span class="name">
-                        <b>
-                            showError
-                        </b>
-                        <a href="#showError"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>showError(message)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="31"
-                            class="link-to-prism">src/app/components/users/users.component.ts:31</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>message</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
-                    <a name="showSuccess"></a>
-                    <span class="name">
-                        <b>
-                            showSuccess
-                        </b>
-                        <a href="#showSuccess"><span class="icon ion-ios-link"></span></a>
-                    </span>
-                </td>
-            </tr>
-            <tr>
-                <td class="col-md-4">
-<code>showSuccess(message)</code>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="27"
-                            class="link-to-prism">src/app/components/users/users.component.ts:27</a></div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <td class="col-md-4">
-
-                    <div class="io-description">
-                        <b>Parameters :</b>
-                        <table class="params">
-                            <thead>
-                                <tr>
-                                    <td>Name</td>
-                                    <td>Optional</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>message</td>
-
-                                    <td>
-                                        No
-                                    </td>
-
-
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                    </div>
-                    <div class="io-description">
-                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
-
-                    </div>
-                    <div class="io-description">
-                        
-                    </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table table-sm table-bordered">
-        <tbody>
-            <tr>
-                <td class="col-md-4">
                     <a name="toggleActivated"></a>
                     <span class="name">
                         <b>
@@ -545,8 +419,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="43"
-                            class="link-to-prism">src/app/components/users/users.component.ts:43</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="44"
+                            class="link-to-prism">src/app/components/users/users.component.ts:44</a></div>
                 </td>
             </tr>
 
@@ -657,9 +531,9 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &quot;@angular/core&quot;;
 import { UserService } from &quot;../../services/user.service&quot;;
-import { ToastrManager } from &quot;ng6-toastr-notifications&quot;;
-
 import { User } from &quot;../../models/User&quot;;
+import { DialogService } from &quot;../../services/dialog.service&quot;;
+import { ToastrService } from &#x27;../../services/toastr.service&#x27;;
 
 @Component({
   selector: &quot;app-users&quot;,
@@ -672,28 +546,29 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private toastr: ToastrManager
+    private dialogService: DialogService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe(users &#x3D;&gt; {
-      this.users &#x3D; users;
+      this.users &#x3D; users.filter(user &#x3D;&gt;
+        user.login !&#x3D;&#x3D; this.userService.decodeUserToken().sub
+      );
     });
-  }
-
-  showSuccess(message) {
-    this.toastr.successToastr(message, &quot;Alert&quot;);
-  }
-
-  showError(message) {
-    this.toastr.errorToastr(message, &quot;Alert&quot;);
   }
 
   onDelete(login) {
     if (this.isAdmin()) {
-      this.userService.deleteUser(login);
-      this.users &#x3D; this.users.filter(u &#x3D;&gt; u.login !&#x3D;&#x3D; login);
-      this.showSuccess(&#x27;User deleted successfuly!&#x27;);
+      this.dialogService.openConfirmDialog(&#x27;Are you sure to detele this user ?&#x27;)
+      .afterClosed().subscribe(res &#x3D;&gt; {
+        console.log(res);
+        if (res) {
+          this.userService.deleteUser(login);
+          this.users &#x3D; this.users.filter(u &#x3D;&gt; u.login !&#x3D;&#x3D; login);
+          this.toastrService.showSuccess(&#x27;User deleted successfuly!&#x27;);
+        }
+      });
     }
   }
 
@@ -702,9 +577,9 @@ export class UsersComponent implements OnInit {
     this.userService.toggleActivated(user).subscribe(
       res &#x3D;&gt; {
         if (user.activated) {
-          this.showSuccess(&#x27;User activated successfuly!&#x27;);
+          this.toastrService.showSuccess(&#x27;User activated successfuly!&#x27;);
         } else {
-          this.showError(&#x27;User desactivated successfuly!&#x27;);
+          this.toastrService.showError(&#x27;User desactivated successfuly!&#x27;);
         }
       },
       err &#x3D;&gt; {
@@ -723,13 +598,30 @@ export class UsersComponent implements OnInit {
     </div>
 
     <div class="tab-pane fade " id="c-templateData">
-        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;users&quot;&gt;
-  &lt;mat-form-field&gt;
-    &lt;input matInput [(ngModel)]&#x3D;&quot;filterText&quot; placeholder&#x3D;&quot;Search&quot; /&gt;
-    &lt;button mat-button *ngIf&#x3D;&quot;filterText&quot; matSuffix mat-icon-button aria-label&#x3D;&quot;Clear&quot; (click)&#x3D;&quot;filterText&#x3D;&#x27;&#x27;&quot;&gt;
-      &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;users container&quot;&gt;
+  &lt;div class&#x3D;&quot;nav-box&quot;&gt;
+    &lt;mat-form-field&gt;
+      &lt;input matInput [(ngModel)]&#x3D;&quot;filterText&quot; placeholder&#x3D;&quot;Search&quot; /&gt;
+      &lt;button
+        mat-button
+        *ngIf&#x3D;&quot;filterText&quot;
+        matSuffix
+        mat-icon-button
+        aria-label&#x3D;&quot;Clear&quot;
+        (click)&#x3D;&quot;filterText &#x3D; &#x27;&#x27;&quot;
+      &gt;
+        &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+      &lt;/button&gt;
+    &lt;/mat-form-field&gt;
+    &lt;button mat-raised-button class&#x3D;&quot;add-user-btn&quot; color&#x3D;&quot;primary&quot;&gt;
+      &lt;a
+        mat-list-item
+        [routerLink]&#x3D;&quot;[&#x27;/user/post&#x27;]&quot;
+        routerLinkActive&#x3D;&quot;router-link-active&quot;
+        &gt;Add user&lt;/a
+      &gt;
     &lt;/button&gt;
-  &lt;/mat-form-field&gt;
+  &lt;/div&gt;
   &lt;table&gt;
     &lt;tr&gt;
       &lt;th&gt;Login&lt;/th&gt;
@@ -747,20 +639,33 @@ export class UsersComponent implements OnInit {
       &lt;td&gt;{{ user.firstName }}&lt;/td&gt;
       &lt;td&gt;{{ user.lastName }}&lt;/td&gt;
       &lt;td&gt;{{ user.email }}&lt;/td&gt;
-      &lt;td&gt;
-        &lt;mat-checkbox class&#x3D;&quot;example-margin&quot; color&#x3D;&quot;primary&quot; [ngModel]&#x3D;&quot;user.activated&quot; (change)&#x3D;&quot;toggleActivated(user)&quot;
+      &lt;td class&#x3D;&#x27;center&#x27;&gt;
+        &lt;mat-checkbox
+          class&#x3D;&quot;example-margin&quot;
+          color&#x3D;&quot;primary&quot;
+          [ngModel]&#x3D;&quot;user.activated&quot;
+          (change)&#x3D;&quot;toggleActivated(user)&quot;
           &gt;Activated&lt;/mat-checkbox
         &gt;
       &lt;/td&gt;
       &lt;td&gt;{{ user.authorities }}&lt;/td&gt;
-      &lt;td&gt;
-        &lt;a mat-button [routerLink]&#x3D;&quot;[&#x27;/users&#x27;, user.login]&quot;&gt;View details&lt;/a&gt;
+      &lt;td class&#x3D;&#x27;center&#x27;&gt;
+        &lt;a [routerLink]&#x3D;&quot;[&#x27;/users&#x27;, user.login]&quot;&gt;
+          &lt;mat-icon class&#x3D;&quot;delete-icon&quot;&gt;remove_red_eye&lt;/mat-icon&gt;
+        &lt;/a&gt;
       &lt;/td&gt;
-      &lt;td&gt;&lt;a mat-button [routerLink]&#x3D;&quot;[&#x27;/edit&#x27;, user.login]&quot;&gt;Edit&lt;/a&gt;&lt;/td&gt;
-      &lt;td&gt;
-        &lt;button mat-flat-button color&#x3D;&quot;warn&quot; (click)&#x3D;&quot;onDelete(user.login)&quot;&gt;
-          Delete
-        &lt;/button&gt;
+      &lt;td class&#x3D;&#x27;center&#x27;&gt;
+        &lt;a [routerLink]&#x3D;&quot;[&#x27;/users/edit&#x27;, user.login]&quot;&gt;
+          &lt;mat-icon class&#x3D;&quot;delete-icon&quot;&gt;edit&lt;/mat-icon&gt;
+        &lt;/a&gt;
+      &lt;/td&gt;
+      &lt;td class&#x3D;&#x27;center&#x27;&gt;
+        &lt;mat-icon
+          color&#x3D;&quot;warn&quot;
+          class&#x3D;&quot;delete-icon&quot;
+          (click)&#x3D;&quot;onDelete(user.login)&quot;
+          &gt;delete&lt;/mat-icon
+        &gt;
       &lt;/td&gt;
     &lt;/tr&gt;
   &lt;/table&gt;
@@ -785,7 +690,23 @@ table {
 th, td {
   padding: 15px;
 }
-</code></pre>
+
+.add-user-btn{
+  float: right;
+  margin: 15px 15px 0 0;
+}
+
+.add-user-btn a {
+  color: #ffffff;
+}
+
+.delete-icon{
+  cursor: pointer;
+}
+
+.center{
+  text-align: center;
+}</code></pre>
     </div>
 
     <div class="tab-pane fade " id="c-tree">
@@ -813,8 +734,8 @@ th, td {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><div class="users">  <mat-form-field>    <input matInput [(ngModel)]="filterText" placeholder="Search" />    <button mat-button *ngIf="filterText" matSuffix mat-icon-button aria-label="Clear" (click)="filterText=\'\'">      <mat-icon>close</mat-icon>    </button>  </mat-form-field>  <table>    <tr>      <th>Login</th>      <th>Firstname</th>      <th>Lastname</th>      <th>Email</th>      <th>Status</th>      <th>Authorities</th>      <th></th>      <th></th>      <th></th>    </tr>    <tr *ngFor="let user of (users | userFilter: filterText)">      <td>{{ user.login }}</td>      <td>{{ user.firstName }}</td>      <td>{{ user.lastName }}</td>      <td>{{ user.email }}</td>      <td>        <mat-checkbox class="example-margin" color="primary" [ngModel]="user.activated" (change)="toggleActivated(user)"          >Activated</mat-checkbox        >      </td>      <td>{{ user.authorities }}</td>      <td>        <a mat-button [routerLink]="[\'/users\', user.login]">View details</a>      </td>      <td><a mat-button [routerLink]="[\'/edit\', user.login]">Edit</a></td>      <td>        <button mat-flat-button color="warn" (click)="onDelete(user.login)">          Delete        </button>      </td>    </tr>  </table></div></div>'
-    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
+        var COMPONENT_TEMPLATE = '<div><div class="users container">  <div class="nav-box">    <mat-form-field>      <input matInput [(ngModel)]="filterText" placeholder="Search" />      <button        mat-button        *ngIf="filterText"        matSuffix        mat-icon-button        aria-label="Clear"        (click)="filterText = \'\'"      >        <mat-icon>close</mat-icon>      </button>    </mat-form-field>    <button mat-raised-button class="add-user-btn" color="primary">      <a        mat-list-item        [routerLink]="[\'/user/post\']"        routerLinkActive="router-link-active"        >Add user</a      >    </button>  </div>  <table>    <tr>      <th>Login</th>      <th>Firstname</th>      <th>Lastname</th>      <th>Email</th>      <th>Status</th>      <th>Authorities</th>      <th></th>      <th></th>      <th></th>    </tr>    <tr *ngFor="let user of (users | userFilter: filterText)">      <td>{{ user.login }}</td>      <td>{{ user.firstName }}</td>      <td>{{ user.lastName }}</td>      <td>{{ user.email }}</td>      <td class=\'center\'>        <mat-checkbox          class="example-margin"          color="primary"          [ngModel]="user.activated"          (change)="toggleActivated(user)"          >Activated</mat-checkbox        >      </td>      <td>{{ user.authorities }}</td>      <td class=\'center\'>        <a [routerLink]="[\'/users\', user.login]">          <mat-icon class="delete-icon">remove_red_eye</mat-icon>        </a>      </td>      <td class=\'center\'>        <a [routerLink]="[\'/users/edit\', user.login]">          <mat-icon class="delete-icon">edit</mat-icon>        </a>      </td>      <td class=\'center\'>        <mat-icon          color="warn"          class="delete-icon"          (click)="onDelete(user.login)"          >delete</mat-icon        >      </td>    </tr>  </table></div></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppNavComponent', 'selector': 'app-components/app-nav'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MatConfirmDialogComponent', 'selector': 'app-mat-confirm-dialog'},{'name': 'UserDetailsComponent', 'selector': 'app-user-details'},{'name': 'UserEditComponent', 'selector': 'app-user-edit'},{'name': 'UserPostComponent', 'selector': 'app-user-post'},{'name': 'UsersComponent', 'selector': 'app-users'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'UsersComponent'};
 </script>
