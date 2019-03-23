@@ -1,15 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { User } from '../models/User';
 
-@Pipe({
-  name: 'defaultPipe'
-})
-export class DefaultPipePipe implements PipeTransform {
-  transform(value: any, args?: any): any {
-    return null;
-  }
-}
-
 @Pipe({ name: 'userActivated' })
 export class UserActivatedPipe implements PipeTransform {
   transform(value: any, ...args): any {
@@ -28,6 +19,24 @@ export class UserFilterPipe implements PipeTransform {
     return users.filter(user =>
       user.login.toLowerCase().indexOf(filterText.toLowerCase()) !== -1
     );
+  }
+}
+
+@Pipe({ name: 'formatAuthorities' })
+export class FormatAuthoritiesFilterPipe implements PipeTransform {
+  transform(value: any, ...args): any {
+    let res = 'User';
+    if(value) {
+      if(value.includes('ROLE_USER')){
+        if(value.includes('ROLE_ADMIN')){
+          res = res.concat(' & Admin');
+        }
+      }else{
+        res = 'Admin';
+      }
+    }
+    return res
+
   }
 }
 

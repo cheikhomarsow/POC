@@ -48,7 +48,7 @@
           >Activated</mat-checkbox
         >
       </td>
-      <td>{{ user.authorities }}</td>
+      <td>{{ user.authorities | formatAuthorities }}</td>
       <td class='center'>
         <a [routerLink]="['/users', user.login]">
           <mat-icon class="delete-icon">remove_red_eye</mat-icon>

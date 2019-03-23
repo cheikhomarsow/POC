@@ -31,7 +31,6 @@ export class UsersComponent implements OnInit {
     if (this.isAdmin()) {
       this.dialogService.openConfirmDialog('Are you sure to detele this user ?')
       .afterClosed().subscribe(res => {
-        console.log(res);
         if (res) {
           this.userService.deleteUser(login).subscribe(data => {
             this.users = this.users.filter(u => u.login !== login);
