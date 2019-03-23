@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl, AbstractControl } from
 import { loginValidator } from '../../validators';
 import { UserService } from "../../services/user.service";
 import { Router } from "@angular/router";
-import { ToastrManager } from "ng6-toastr-notifications";
+import { ToastrService } from '../../services/toastr.service';
 
 @Component({
   selector: "app-user-post",
@@ -20,7 +20,7 @@ export class UserPostComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private toastr: ToastrManager
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class UserPostComponent implements OnInit {
     this.userService.createUser(JSON.stringify(params)).subscribe(
       res => {
         this.router.navigate(['/users']);
-        this.showSuccess();
+        this.toastrService.showSuccess('User added successfully!');
       },
       err => {
         if (err.error && err.error.errorKey) {
@@ -59,10 +59,6 @@ export class UserPostComponent implements OnInit {
         }
       }
     );
-  }
-
-  showSuccess() {
-    this.toastr.successToastr('User added successfully!', 'Success!');
   }
 
   getSelectedAuthorities() {

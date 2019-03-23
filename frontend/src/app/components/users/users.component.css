@@ -24,3 +24,7 @@ th, td {
 .delete-icon{
   cursor: pointer;
 }
+
+.center{
+  text-align: center;
+}

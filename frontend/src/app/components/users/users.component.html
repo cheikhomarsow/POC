@@ -1,4 +1,4 @@
-<div class="users">
+<div class="users container">
   <div class="nav-box">
     <mat-form-field>
       <input matInput [(ngModel)]="filterText" placeholder="Search" />
@@ -16,7 +16,7 @@
     <button mat-raised-button class="add-user-btn" color="primary">
       <a
         mat-list-item
-        [routerLink]="['/post']"
+        [routerLink]="['/user/post']"
         routerLinkActive="router-link-active"
         >Add user</a
       >
@@ -39,7 +39,7 @@
       <td>{{ user.firstName }}</td>
       <td>{{ user.lastName }}</td>
       <td>{{ user.email }}</td>
-      <td>
+      <td class='center'>
         <mat-checkbox
           class="example-margin"
           color="primary"
@@ -49,17 +49,17 @@
         >
       </td>
       <td>{{ user.authorities }}</td>
-      <td>
+      <td class='center'>
         <a [routerLink]="['/users', user.login]">
           <mat-icon class="delete-icon">remove_red_eye</mat-icon>
         </a>
       </td>
-      <td>
-        <a [routerLink]="['/edit', user.login]">
+      <td class='center'>
+        <a [routerLink]="['/users/edit', user.login]">
           <mat-icon class="delete-icon">edit</mat-icon>
         </a>
       </td>
-      <td>
+      <td class='center'>
         <mat-icon
           color="warn"
           class="delete-icon"

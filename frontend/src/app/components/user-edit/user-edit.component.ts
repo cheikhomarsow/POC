@@ -8,7 +8,7 @@ import { ActivatedRoute } from "@angular/router";
 import { UserService } from "../../services/user.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { Router } from "@angular/router";
-import { ToastrManager } from "ng6-toastr-notifications";
+import { ToastrService } from '../../services/toastr.service';
 
 @Component({
   selector: "app-user-edit",
@@ -28,7 +28,7 @@ export class UserEditComponent implements OnInit {
     private cd: ChangeDetectorRef,
     private fb: FormBuilder,
     private router: Router,
-    private toastr: ToastrManager
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -71,7 +71,7 @@ export class UserEditComponent implements OnInit {
     this.userService.updateUser(this.user$).subscribe(
       res => {
         this.router.navigate(['/users']);
-        this.showInfo();
+        this.toastrService.showInfo('User updated successfuly!');
       },
       err => {
         console.log(err);
@@ -92,9 +92,5 @@ export class UserEditComponent implements OnInit {
       authorities.push('ROLE_USER');
     }
     return authorities;
-  }
-
-  showInfo() {
-    this.toastr.infoToastr('User updated successfuly.');
   }
 }

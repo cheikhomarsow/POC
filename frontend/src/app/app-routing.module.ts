@@ -24,13 +24,13 @@ const routes: Routes = [
     canLoad: [UserGuard]
   },
   {
-    path: 'edit/:login',
+    path: 'users/edit/:login',
     component: UserEditComponent,
     canActivate: [UserGuard],
     canLoad: [UserGuard]
   },
   {
-    path: 'post',
+    path: 'user/post',
     component: UserPostComponent,
     canActivate: [UserGuard],
     canLoad: [UserGuard]

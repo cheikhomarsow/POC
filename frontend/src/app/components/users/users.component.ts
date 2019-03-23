@@ -1,9 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { UserService } from "../../services/user.service";
-import { ToastrManager } from "ng6-toastr-notifications";
-
 import { User } from "../../models/User";
 import { DialogService } from "../../services/dialog.service";
+import { ToastrService } from '../../services/toastr.service';
 
 @Component({
   selector: "app-users",
@@ -16,8 +15,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private toastr: ToastrManager,
-    private dialogService: DialogService
+    private dialogService: DialogService,
+    private toastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -28,14 +27,6 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  showSuccess(message) {
-    this.toastr.successToastr(message);
-  }
-
-  showError(message) {
-    this.toastr.errorToastr(message);
-  }
-
   onDelete(login) {
     if (this.isAdmin()) {
       this.dialogService.openConfirmDialog('Are you sure to detele this user ?')
@@ -44,7 +35,7 @@ export class UsersComponent implements OnInit {
         if (res) {
           this.userService.deleteUser(login);
           this.users = this.users.filter(u => u.login !== login);
-          this.showSuccess('User deleted successfuly!');
+          this.toastrService.showSuccess('User deleted successfuly!');
         }
       });
     }
@@ -55,9 +46,9 @@ export class UsersComponent implements OnInit {
     this.userService.toggleActivated(user).subscribe(
       res => {
         if (user.activated) {
-          this.showSuccess('User activated successfuly!');
+          this.toastrService.showSuccess('User activated successfuly!');
         } else {
-          this.showError('User desactivated successfuly!');
+          this.toastrService.showError('User desactivated successfuly!');
         }
       },
       err => {
